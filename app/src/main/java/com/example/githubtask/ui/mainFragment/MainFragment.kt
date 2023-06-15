@@ -77,8 +77,8 @@ class MainFragment : BaseFragment<FragmentMainBinding, MainFragmentViewModel>(
         val bundle = Bundle().apply {
             putSerializable("user", user)
         }
-        val navController = findNavController(requireActivity(), R.id.fragmentContainerView)
-        navController.navigate(R.id.action_mainFragment_to_followsFragment, bundle)
+        /*val navController = findNavController(requireActivity(), R.id.fragmentContainerView)
+        navController.navigate(R.id.action_mainFragment_to_followsFragment, bundle)*/
     }
 
 

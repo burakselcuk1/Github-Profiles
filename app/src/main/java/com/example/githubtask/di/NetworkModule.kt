@@ -30,13 +30,8 @@ object NetworkModule {
         OkHttpClient
             .Builder()
             .addInterceptor(httpLoggingInterceptor)
-            .addInterceptor { chain ->    // Authorization Interceptor
-                val originalRequest = chain.request()
-                val builder = originalRequest.newBuilder().header("Authorization", "token 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")
-                val newRequest = builder.build()
-                chain.proceed(newRequest)
-            }
             .build()
+
 
     @Singleton
     @Provides
