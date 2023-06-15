@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.Observer
+import androidx.navigation.Navigation
 import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
@@ -77,8 +78,8 @@ class MainFragment : BaseFragment<FragmentMainBinding, MainFragmentViewModel>(
         val bundle = Bundle().apply {
             putSerializable("user", user)
         }
-        /*val navController = findNavController(requireActivity(), R.id.fragmentContainerView)
-        navController.navigate(R.id.action_mainFragment_to_followsFragment, bundle)*/
+
+        findNavController().navigate(R.id.action_mainFragment_to_followsFragment, bundle)
     }
 
 
