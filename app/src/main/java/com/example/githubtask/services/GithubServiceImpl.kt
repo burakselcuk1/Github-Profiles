@@ -6,5 +6,7 @@ import javax.inject.Inject
 class GithubServiceImpl @Inject constructor(private val githubService: GithubService) {
 
     suspend fun getUsers(userName: String) = githubService.getUser(userName)
+    suspend fun getFollowing(userName: String) = githubService.getFollowing(userName)
+
 
 }
