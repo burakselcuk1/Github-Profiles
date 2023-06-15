@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.bumptech.glide.Glide
 import com.example.githubtask.R
 import com.example.githubtask.base.BaseFragment
 import com.example.githubtask.databinding.FragmentFollowsBinding
@@ -21,7 +22,17 @@ class FollowsFragment : BaseFragment<FragmentFollowsBinding, FollowsFragmentView
         arguments?.let {
             val user = it.getSerializable("user") as GithubUser
             // İşlem yapmak için 'user' nesnesini kullanabilirsiniz
-            Log.d("burak",user.following.toString())
+            Log.d("burak", user.following.toString())
+
+
+            with(binding) {
+                userName.text = user.login
+                bio.text = user.bio
+                Glide.with(requireActivity())
+                    .load(user.avatarUrl)
+                    .into(userImage)
+            }
         }
     }
-    }
+ }
+
