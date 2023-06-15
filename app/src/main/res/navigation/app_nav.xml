@@ -15,5 +15,13 @@
     <fragment
         android:id="@+id/followsFragment"
         android:name="com.example.githubtask.ui.follows.FollowsFragment"
-        android:label="FollowsFragment" />
+        android:label="FollowsFragment" >
+        <action
+            android:id="@+id/action_followsFragment_to_userDetailFragment"
+            app:destination="@id/userDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userDetailFragment"
+        android:name="com.example.githubtask.ui.userDetail.UserDetailFragment"
+        android:label="UserDetailFragment" />
 </navigation>

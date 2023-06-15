@@ -1,8 +1,10 @@
 package com.example.githubtask.ui.follows
 
+import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
@@ -22,19 +24,25 @@ class FollowsFragment : BaseFragment<FragmentFollowsBinding, FollowsFragmentView
     override fun onInitDataBinding() {
 
         arguments?.let {
-            val user = it.getSerializable("user") as GithubUser
-            // İşlem yapmak için 'user' nesnesini kullanabilirsiniz
-            Log.d("burak", user.following.toString())
+            val user = it.getParcelable("user") as? GithubUser
+            if(user != null) {
+                // İşlem yapmak için 'user' nesnesini kullanabilirsiniz
+                Log.d("burak", user.following.toString())
 
-            viewModel.getFollowing(user.login)
-            with(binding) {
-                userName.text = user.login
-                bio.text = user.bio
-                Glide.with(requireActivity())
-                    .load(user.avatarUrl)
-                    .into(userImage)
+                user.login?.let { it1 -> viewModel.getFollowing(it1) }
+                with(binding) {
+                    userName.text = user.login
+                    bio.text = user.bio
+                    Glide.with(requireActivity())
+                        .load(user.avatarUrl)
+                        .into(userImage)
+                }
+            } else {
+                // Handle null user scenario
+                Log.d("burak", "User is null")
             }
         }
+
 
         setupUI()
         setupObserver()
@@ -72,8 +80,13 @@ class FollowsFragment : BaseFragment<FragmentFollowsBinding, FollowsFragmentView
         Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
     }
 
-    override fun onItemClicked(user: GithubUser) {
-        // You can handle a user click here if needed
+    override fun onItemClicked(userTwo: GithubUser) {
+        userTwo.let { user ->
+            val bundle = Bundle().apply {
+                putParcelable("userSelected", user)
+            }
+            findNavController().navigate(R.id.action_followsFragment_to_userDetailFragment, bundle)
+        }
     }
 }
 

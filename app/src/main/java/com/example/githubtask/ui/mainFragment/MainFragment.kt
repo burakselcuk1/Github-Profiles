@@ -76,7 +76,7 @@ class MainFragment : BaseFragment<FragmentMainBinding, MainFragmentViewModel>(
 
     override fun onItemClicked(user: GithubUser) {
         val bundle = Bundle().apply {
-            putSerializable("user", user)
+            putParcelable("user", user)
         }
 
         findNavController().navigate(R.id.action_mainFragment_to_followsFragment, bundle)
