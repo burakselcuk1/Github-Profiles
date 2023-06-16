@@ -7,6 +7,7 @@
     <string name="followers">Followers: </string>
     <string name="following">Following: </string>
     <string name="user_not_found">User not found: </string>
+    <string name="write_usernama">Write Username</string>
 
     <!-- Toolbar !-->
     <string name="github_profiles">Github Profiles</string>

@@ -32,7 +32,7 @@
                 android:id="@+id/search"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:hint="buraya yaz"
+                android:hint="@string/write_usernama"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
