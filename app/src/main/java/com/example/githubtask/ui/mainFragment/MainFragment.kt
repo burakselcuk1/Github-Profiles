@@ -25,9 +25,14 @@ class MainFragment : BaseFragment<FragmentMainBinding, MainFragmentViewModel>(
     layoutId = R.layout.fragment_main,
     viewModelClass = MainFragmentViewModel::class.java
 ), ItemClickListener {
-    private lateinit var adapter: GithubUserAdapter
 
+    private lateinit var adapter: GithubUserAdapter
     override fun onInitDataBinding() {
+
+        with(binding){
+            toolbar.toolbarTitle.text = getString(R.string.github_profiles)
+            toolbar.backButton.visibility = View.GONE
+        }
 
         setupUI()
         setupObserver()
@@ -81,7 +86,4 @@ class MainFragment : BaseFragment<FragmentMainBinding, MainFragmentViewModel>(
 
         findNavController().navigate(R.id.action_mainFragment_to_followsFragment, bundle)
     }
-
-
-
 }

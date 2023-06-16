@@ -39,7 +39,7 @@ class UserDetailFragment : BaseFragment<FragmentUserDetailBinding, UserDetailVie
         }
 
         with(binding){
-            toolbar.toolbarTitle.text = "User Detail"
+            toolbar.toolbarTitle.text = getString(R.string.user_detail)
             toolbar.backButton.setOnClickListener {
                 findNavController().popBackStack()
 
