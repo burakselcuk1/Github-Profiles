@@ -21,9 +21,6 @@ class MainFragmentViewModel @Inject constructor(private val repository: GithubUs
     val error: LiveData<String> get() = _error
 
 
-    val searchQuery = MutableLiveData<String>()
-
-
     fun getUser(username: String) {
         viewModelScope.launch {
             try {

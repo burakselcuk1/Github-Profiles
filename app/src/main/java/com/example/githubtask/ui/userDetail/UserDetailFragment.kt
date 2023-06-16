@@ -22,9 +22,6 @@ class UserDetailFragment : BaseFragment<FragmentUserDetailBinding, UserDetailVie
         arguments?.let {
             val user = it.getParcelable("userSelected") as? GithubUser
             if(user != null) {
-                // İşlem yapmak için 'user' nesnesini kullanabilirsiniz
-                Log.d("burak", user.following.toString())
-
                 with(binding) {
                     followUserName.text = user.login
                     followBio.text = user.bio
@@ -34,7 +31,6 @@ class UserDetailFragment : BaseFragment<FragmentUserDetailBinding, UserDetailVie
                 }
             } else {
                 // Handle null user scenario
-                Log.d("burak", "User is null")
             }
         }
 
@@ -46,6 +42,4 @@ class UserDetailFragment : BaseFragment<FragmentUserDetailBinding, UserDetailVie
             }
         }
     }
-
-
 }

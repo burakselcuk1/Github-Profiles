@@ -26,9 +26,6 @@ class FollowsFragment : BaseFragment<FragmentFollowsBinding, FollowsFragmentView
         arguments?.let {
             val user = it.getParcelable("user") as? GithubUser
             if(user != null) {
-                // İşlem yapmak için 'user' nesnesini kullanabilirsiniz
-                Log.d("burak", user.following.toString())
-
                 user.login?.let { it1 -> viewModel.getFollowing(it1) }
                 with(binding) {
                     userName.text = user.login
@@ -39,7 +36,6 @@ class FollowsFragment : BaseFragment<FragmentFollowsBinding, FollowsFragmentView
                 }
             } else {
                 // Handle null user scenario
-                Log.d("burak", "User is null")
             }
         }
 

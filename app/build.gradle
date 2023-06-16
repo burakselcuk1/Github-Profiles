@@ -4,7 +4,6 @@ plugins {
     id 'kotlin-kapt'
     id "dagger.hilt.android.plugin"
     id 'kotlin-parcelize'
-
 }
 
 android {
@@ -47,11 +46,8 @@ android {
 
 dependencies {
     def nav_version = "2.6.0"
-    def retrofit_version ="2.9.0"
     def hilt_version = "2.44"
     def gsonVersion = '2.8.6'
-    def lottieVersion = "3.2.0"
-    def room_version = "2.3.0"
 
     implementation 'androidx.core:core-ktx:1.8.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
