@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.example.githubtask.R
 import com.example.githubtask.base.BaseFragment
@@ -36,5 +37,15 @@ class UserDetailFragment : BaseFragment<FragmentUserDetailBinding, UserDetailVie
                 Log.d("burak", "User is null")
             }
         }
+
+        with(binding){
+            toolbar.toolbarTitle.text = "User Detail"
+            toolbar.backButton.setOnClickListener {
+                findNavController().popBackStack()
+
+            }
+        }
     }
+
+
 }
