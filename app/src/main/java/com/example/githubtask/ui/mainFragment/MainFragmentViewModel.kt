@@ -20,15 +20,21 @@ class MainFragmentViewModel @Inject constructor(private val repository: GithubUs
     private val _error = MutableLiveData<String>()
     val error: LiveData<String> get() = _error
 
+    val isLoading = MutableLiveData<Boolean>()
+
 
     fun getUser(username: String) {
         viewModelScope.launch {
+            isLoading.value = true
             try {
                 val response = repository.getUsers(username)
                 _user.value = response
             } catch (e: Exception) {
                 _error.value = e.message
+            } finally {
+                isLoading.value = false
             }
         }
     }
+
 }

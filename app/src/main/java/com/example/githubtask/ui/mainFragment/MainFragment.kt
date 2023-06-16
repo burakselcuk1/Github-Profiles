@@ -66,6 +66,15 @@ class MainFragment : BaseFragment<FragmentMainBinding, MainFragmentViewModel>(
                 showToast(getString(R.string.user_not_found)) // user not found
             }
         })
+        viewModel.isLoading.observe(viewLifecycleOwner, Observer { isLoading ->
+            if (isLoading) {
+                // Göster progress butonu
+                binding.progressBar.visibility = View.VISIBLE
+            } else {
+                // Gizle progress butonu
+                binding.progressBar.visibility = View.GONE
+            }
+        })
     }
 
 
