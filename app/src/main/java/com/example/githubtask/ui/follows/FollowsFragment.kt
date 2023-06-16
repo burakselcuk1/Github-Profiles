@@ -43,6 +43,14 @@ class FollowsFragment : BaseFragment<FragmentFollowsBinding, FollowsFragmentView
             }
         }
 
+        with(binding){
+            toolbar.toolbarTitle.text = "Follows"
+            toolbar.backButton.setOnClickListener {
+                findNavController().popBackStack()
+
+            }
+        }
+
 
         setupUI()
         setupObserver()
